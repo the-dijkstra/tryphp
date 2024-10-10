@@ -7,7 +7,7 @@ export const GET: APIRoute = ({ request }) => {
 		}),
 		{
 			headers: {
-				"Content-Type": "text/plain",
+				"Content-Type": "text/plain;charset=UTF-8",
 			},
 		},
 	);
