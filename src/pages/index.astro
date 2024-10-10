@@ -1,10 +1,96 @@
+---
+import { Seo } from "astro-seo-meta";
+
+import { Code } from "astro:components";
+---
+
 <html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Try PHP | Set up your PHP environment effortlessly</title>
-	</head>
-	<body>Coming soon...</body>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <Seo
+      title="Try PHP"
+      description="Set up your PHP environment effortlessly"
+      keywords={[
+        "PHP environment setup",
+        "Install PHP easily",
+        "Set up PHP in seconds",
+        "Effortless PHP configuration",
+        "PHP setup for developers",
+        "Quick PHP environment install",
+        "PHP development environment",
+        "Automatic PHP setup",
+        "Install latest PHP version",
+        "Easy PHP installation guide",
+        "PHP environment for beginners",
+        "Fast PHP setup tool",
+      ]}
+      themeColor="#000000"
+      colorScheme="light"
+    />
+  </head>
+  <body
+    class="min-h-screen bg-gray-100 flex flex-col items-center justify-center p-4"
+  >
+    <div>
+      <div class="bg-white rounded-lg shadow-lg p-8 max-w-2xl w-full">
+        <p class="text-xl mb-6 flex items-center">
+          Set up your&nbsp;<a href="https://www.php.net">PHP</a
+          >&nbsp;environment effortlessly
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="ml-2 lucide lucide-rocket"
+          >
+            <path
+              d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"
+            ></path>
+            <path
+              d="m12 15-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"
+            ></path>
+            <path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"></path>
+            <path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"></path>
+          </svg>
+        </p>
+        <p class="mb-6">
+          Simply run the following command in your terminal to install the
+          latest version of PHP and all its dependencies.
+        </p>
+        <div class="mb-4"></div>
+        <Code
+          class="rounded p-4 mb-6"
+          code="curl -fsSL https://tryphp.dev/install.sh | bash"
+          lang="bash"
+          theme="catppuccin-mocha"
+        />
+        <p class="text-sm text-gray-600 flex items-center">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="mr-2 lucide lucide-terminal"
+          >
+            <polyline points="4 17 10 11 4 5"></polyline>
+            <line x1="12" x2="20" y1="19" y2="19"></line>
+          </svg>
+          After running the command above, you should restart your terminal session.
+        </p>
+      </div>
+    </div>
+  </body>
 </html>
