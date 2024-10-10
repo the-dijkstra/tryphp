@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo "Try PHP | Set up your PHP environment effortlessly"
