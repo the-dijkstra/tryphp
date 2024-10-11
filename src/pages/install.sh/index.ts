@@ -1,9 +1,9 @@
 import type { APIRoute } from "astro";
 
-import content from "./_install.txt";
+import install from "../../presets/php8.3.txt";
 
 export const GET: APIRoute = () => {
-	return new Response(content, {
+	return new Response(install, {
 		headers: {
 			"Content-Type": "text/plain;charset=UTF-8",
 		},

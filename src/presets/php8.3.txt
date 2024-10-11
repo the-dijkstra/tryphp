@@ -108,7 +108,7 @@ sudo rm composer-setup.php
 sudo chmod +x "$COMPOSER_DIR/composer"
 
 # Get installed versions for display
-INSTALLED_PHP_VERSION=$(php -r "echo PHP_VERSION;")
+INSTALLED_PHP_VERSION=$(php --version | awk '/^PHP/ {print $2}')
 INSTALLED_COMPOSER_VERSION=$("$COMPOSER_DIR/composer" --version | awk '{print $3}')
 
 printf "\e[1mPHP ${INSTALLED_PHP_VERSION}\e[0m and \e[1mComposer ${INSTALLED_PHP_VERSION}\e[0m have been installed successfully."
