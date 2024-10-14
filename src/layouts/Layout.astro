@@ -1,0 +1,36 @@
+---
+import { Seo } from "astro-seo-meta";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <Seo
+      title="TryPHP"
+      description="Set up your PHP environment effortlessly with a single curl command"
+      keywords={[
+        "PHP environment setup",
+        "Install PHP easily",
+        "Set up PHP in seconds",
+        "Effortless PHP configuration",
+        "PHP setup for developers",
+        "Quick PHP environment install",
+        "PHP development environment",
+        "Automatic PHP setup",
+        "Install latest PHP version",
+        "Easy PHP installation guide",
+        "PHP environment for beginners",
+        "Fast PHP setup tool",
+      ]}
+    />
+  </head>
+  <body
+    class="bg-gray-100 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300"
+  >
+    <slot />
+  </body>
+</html>

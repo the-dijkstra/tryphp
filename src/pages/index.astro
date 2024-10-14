@@ -1,87 +1,118 @@
 ---
-import { Seo } from "astro-seo-meta";
-
 import { Code } from "astro:components";
 
-// This route is generated at build time!
-export const prerender = true;
+import CopyCodeButton from "../components/CopyCodeButton.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
+import Layout from "../layouts/Layout.astro";
+
+const code = "curl -fsSL https://tryphp.dev/install.sh | bash";
 ---
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="generator" content={Astro.generator} />
-    <Seo
-      title="Try PHP"
-      description="Set up your PHP environment effortlessly"
-      keywords={[
-        "PHP environment setup",
-        "Install PHP easily",
-        "Set up PHP in seconds",
-        "Effortless PHP configuration",
-        "PHP setup for developers",
-        "Quick PHP environment install",
-        "PHP development environment",
-        "Automatic PHP setup",
-        "Install latest PHP version",
-        "Easy PHP installation guide",
-        "PHP environment for beginners",
-        "Fast PHP setup tool",
-      ]}
-      themeColor="#000000"
-      colorScheme="light"
-    />
-  </head>
-  <body
-  class="min-h-screen bg-white dark:bg-gray-900 flex flex-col items-center p-4 transition-colors duration-200"
->
-  <div class="pt-16 max-w-2xl w-full flex flex-col gap-4">
-    <div class="flex justify-between items-center mb-12">
-      <p class="text-xl font-bold flex items-center gap-2 text-gray-900 dark:text-white">
-        <svg height="32" viewBox="0 0 32 32" width="32" xmlns="http://www.w3.org/2000/svg" class="dark:fill-white"><path d="m9.349 13.609h-1.261l-.687 3.531h1.12c.739 0 1.291-.14 1.656-.421.359-.276.604-.745.729-1.396.124-.625.067-1.068-.161-1.328-.235-.255-.699-.385-1.396-.385zm6.651-6.025c-8.839 0-16 3.771-16 8.416s7.161 8.416 16 8.416 16-3.771 16-8.416-7.161-8.416-16-8.416zm-4.349 9.937c-.344.333-.765.583-1.219.733-.448.141-1.02.219-1.713.219h-1.579l-.432 2.24h-1.839l1.641-8.432h3.531c1.063 0 1.839.276 2.328.833.485.557.636 1.339.437 2.339-.072.396-.213.776-.405 1.131-.193.337-.437.651-.751.937zm5.37.952.724-3.733c.083-.423.052-.713-.095-.871-.14-.151-.448-.229-.916-.229h-1.453l-.937 4.833h-1.828l1.64-8.437h1.823l-.437 2.245h1.625c1.027 0 1.729.177 2.115.531.391.36.505.937.355 1.735l-.767 3.927zm10.124-3.02c-.072.396-.208.776-.405 1.131-.188.337-.437.651-.745.937-.349.328-.765.583-1.224.733-.448.141-1.021.219-1.713.219h-1.573l-.437 2.24h-1.839l1.641-8.432h3.531c1.063 0 1.839.276 2.328.839.485.552.636 1.333.437 2.333zm-3.457-1.844h-1.256l-.687 3.531h1.115c.744 0 1.296-.14 1.656-.421.364-.276.609-.745.735-1.396.124-.625.067-1.068-.168-1.328-.228-.255-.697-.385-1.395-.385z"/></svg>
+<Layout>
+  <main class="max-w-4xl mx-auto px-4 py-16 flex flex-col gap-12">
+    <nav class="flex justify-between items-center">
+      <p class="text-xl font-bold flex items-center gap-2">
+        <svg
+          class="fill-current"
+          xmlns="http://www.w3.org/2000/svg"
+          width="32"
+          height="32"
+          viewBox="0 0 20 20"
+          ><path
+            fill-rule="evenodd"
+            d="M10 12v8A10 10 0 0 1 8.17.17L10 2h5a5 5 0 0 1 5 4.99v9.02A4 4 0 0 1 16 20v-2a2 2 0 1 0 0-4h-4l-2-2zm5.5-3a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3z"
+          ></path></svg
+        >
         TryPHP
       </p>
+      <div class="flex items-center space-x-4">
+        <ThemeToggle />
+        <a
+          href="https://github.com/the-dijkstra/tryphp"
+          class="hover:opacity-80 transition-opacity"
+        >
+          <svg
+            width="30"
+            height="30"
+            xmlns="http://www.w3.org/2000/svg"
+            role="img"
+            viewBox="0 0 24 24"
+            class="fill-current"
+            ><path
+              d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"
+            ></path></svg
+          >
+        </a>
+      </div>
+    </nav>
 
-      <a href="https://github.com/the-dijkstra/tryphp" class="text-gray-900 dark:text-white hover:opacity-80 transition-opacity">
-        <svg width="32" height="32" xmlns="http://www.w3.org/2000/svg" role="img" viewBox="0 0 24 24" class="fill-current"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-      </a>
-    </div>
-    <div>
-      <p class="text-2xl font-bold flex items-center mb-2 text-gray-900 dark:text-white">
-        Set up your&nbsp;<a href="https://www.php.net" class="hover:underline">PHP</a
-        >&nbsp;environment effortlessly 🚀
+    <header class="-mb-6">
+      <h1 class="text-2xl font-bold mb-2">
+        Effortlessly set up <a
+          href="https://www.php.net"
+          class="hover:underline">PHP</a
+        > on Linux with one simple command 🚀.
+      </h1>
+      <p class="text-base">
+        Simply run the following command in your terminal to install the latest
+        version of PHP and all its dependencies including composer.
       </p>
-      <p class="text-gray-700 dark:text-gray-300">
-        Simply run the following command in your terminal to install the
-        latest version of PHP and all its dependencies.
+    </header>
+
+    <section class="relative">
+      <Code
+        class="rounded p-4 mb-2"
+        code={code}
+        lang="bash"
+        theme="catppuccin-mocha"
+      />
+      <CopyCodeButton code={code} />
+
+      <p class="text-sm flex items-center">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="16"
+          height="16"
+          viewBox="0 0 24 24"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          class="mr-2 stroke-current fill-none"
+        >
+          <polyline points="4 17 10 11 4 5"></polyline>
+          <line x1="12" x2="20" y1="19" y2="19"></line>
+        </svg>
+        After running the command above, you should restart your terminal session.
       </p>
-    </div>
-    <Code
-      class="rounded p-4 bg-gray-100 dark:bg-gray-800"
-      code="curl -fsSL https://tryphp.dev/install.sh | bash"
-      lang="bash"
-      theme="catppuccin-mocha"
-    />
-    <p class="text-sm text-gray-600 dark:text-gray-400 flex items-center">
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        width="16"
-        height="16"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        class="mr-2 lucide lucide-terminal"
-      >
-        <polyline points="4 17 10 11 4 5"></polyline>
-        <line x1="12" x2="20" y1="19" y2="19"></line>
-      </svg>
-      After running the command above, you should restart your terminal session.
-    </p>
-  </div>
-</body>
-</html>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">What is TryPHP?</h2>
+      <p class="text-lg">
+        This tool simplifies the often time-consuming task of setting up a PHP
+        environment on Linux. With just a single curl command, you can instantly
+        install the latest PHP version, complete with all required dependencies
+        and Composer. It's perfect for developers and system administrators
+        seeking a fast, efficient setup.
+      </p>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">Features</h2>
+      <ul class="list-disc pl-6 space-y-2">
+        <li>
+          Automated PHP Installation: Set up latest version of PHP with just a
+          single curl command.
+        </li>
+        <li>
+          Composer Ready: Installs Composer automatically for seamless package
+          management.
+        </li>
+        <li>
+          Dependency Check: Automatically verifies and installs all necessary
+          libraries and extensions.
+        </li>
+      </ul>
+    </section>
+  </main>
+</Layout>

@@ -1,0 +1,29 @@
+---
+const { code } = Astro.props;
+---
+
+<button
+  id="copy-code"
+  class="absolute top-[0.9rem] right-2 bg-gray-700 hover:bg-gray-600 text-white font-bold py-1 px-2 rounded text-sm"
+  data-code={code}
+>
+  Copy
+</button>
+
+<script>
+  function copyToClipboard(text: string | null) {
+    navigator.clipboard.writeText(text ?? "").catch((err) => {
+      console.error("Error copying text: ", err);
+    });
+  }
+
+  const button = document.getElementById("copy-code")!;
+  button.addEventListener("click", () => {
+    const code = button.getAttribute("data-code");
+    copyToClipboard(code);
+    button.textContent = "Copied!";
+    setTimeout(() => {
+      button.textContent = "Copy";
+    }, 2000);
+  });
+</script>
