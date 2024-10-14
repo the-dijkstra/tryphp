@@ -1,5 +1,8 @@
 # Try PHP
 
+<img src="public/cover.png" alt="TryPHP's logo">
+<br><br>
+
 Effortlessly set up PHP on Linux with a simple `curl` command 🚀.
 
 ```sh
