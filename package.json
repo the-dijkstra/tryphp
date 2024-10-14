@@ -1,6 +1,6 @@
 {
   "name": "tryphp",
-  "description": "Set up your PHP environment effortlessly with a single curl command",
+  "description": "Effortlessly set up PHP on Linux with a simple curl command",
   "type": "module",
   "version": "0.0.1",
   "scripts": {

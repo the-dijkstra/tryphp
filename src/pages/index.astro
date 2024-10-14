@@ -1,9 +1,10 @@
 ---
 import { Code } from "astro:components";
 
+import Layout from "../layouts/Layout.astro";
+
 import CopyCodeButton from "../components/CopyCodeButton.astro";
 import ThemeToggle from "../components/ThemeToggle.astro";
-import Layout from "../layouts/Layout.astro";
 
 const code = "curl -fsSL https://tryphp.dev/install.sh | bash";
 ---
@@ -51,9 +52,9 @@ const code = "curl -fsSL https://tryphp.dev/install.sh | bash";
         Effortlessly set up <a
           href="https://www.php.net"
           class="hover:underline">PHP</a
-        > on Linux with one simple command 🚀.
+        > on Linux with a simple curl command 🚀.
       </h1>
-      <p class="text-base">
+      <p class="text-base text-gray-700 dark:text-gray-300">
         Simply run the following command in your terminal to install the latest
         version of PHP and all its dependencies including composer.
       </p>
@@ -68,7 +69,7 @@ const code = "curl -fsSL https://tryphp.dev/install.sh | bash";
       />
       <CopyCodeButton code={code} />
 
-      <p class="text-sm flex items-center">
+      <p class="text-sm flex items-center text-gray-700 dark:text-gray-300">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -101,16 +102,44 @@ const code = "curl -fsSL https://tryphp.dev/install.sh | bash";
       <h2 class="text-2xl font-semibold mb-4">Features</h2>
       <ul class="list-disc pl-6 space-y-2">
         <li>
-          Automated PHP Installation: Set up latest version of PHP with just a
-          single curl command.
+          <span class="font-bold">Automated PHP Installation:</span> Set up latest
+          version of PHP with just a single curl command.
         </li>
         <li>
-          Composer Ready: Installs Composer automatically for seamless package
-          management.
+          <span class="font-bold">Composer Ready:</span> Installs Composer automatically
+          for seamless package management.
         </li>
         <li>
-          Dependency Check: Automatically verifies and installs all necessary
-          libraries and extensions.
+          <span class="font-bold">Dependency Check:</span> Automatically verifies
+          and installs all necessary libraries and extensions.
+        </li>
+      </ul>
+    </section>
+
+    <section>
+      <h2 class="text-2xl font-semibold mb-4">FAQ</h2>
+      <ul class="list-disc pl-6 space-y-2">
+        <li>
+          <span class="font-bold"
+            >Does this tool generate scripts at request time that could be
+            altered to harm users?</span
+          > No, all scripts are pre-built to ensure security and integrity.
+        </li>
+        <li>
+          <span class="font-bold"
+            >Does this tool support other operating systems like Windows or Mac
+            ?</span
+          > Not yet, it's currently Linux-only.
+        </li>
+        <li>
+          <span class="font-bold"
+            >Does this tool install any affiliated code or packages?</span
+          > No, it's fully open-source. You can review and access the source code
+          directly on our GitHub repository.
+        </li>
+        <li>
+          <span class="font-bold">How can I support this project? </span>You can
+          contribute code to our GitHub repository or make a donation.
         </li>
       </ul>
     </section>

@@ -1,6 +1,6 @@
 # Try PHP
 
-Set up your PHP environment effortlessly with just one `curl` command
+Effortlessly set up PHP on Linux with a simple `curl` command 🚀.
 
 ```sh
 curl -fsSL https://tryphp.dev/install.sh | bash
