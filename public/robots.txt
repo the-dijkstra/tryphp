@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://tryphp.dev/sitemap-index.xml
