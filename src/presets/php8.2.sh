@@ -2,12 +2,6 @@
 
 set -euo pipefail
 
-PHP_VERSION="8.3"
-
-COMPOSER_DIR="/usr/local/bin"
-COMPOSER_SETUP_URL="https://getcomposer.org/installer"
-COMPOSER_HASH_URL="https://composer.github.io/installer.sig"
-
 info() {
     local blue_bg="\033[44m"
     local white_text="\033[97m"
@@ -56,45 +50,49 @@ ensure_sudo
 # Add PHP repository
 info "Adding PHP repository...\n"
 sudo apt-get update -y
-sudo apt-get install -y software-properties-common
+sudo apt-get install -y ca-certificates apt-transport-https software-properties-common
 sudo LC_ALL=C.UTF-8 add-apt-repository -y ppa:ondrej/php
 
 wait_for_apt_lock
 sudo apt-get update -y
 
-# Install PHP and required extensions
-info "Installing PHP $PHP_VERSION and extensions...\n"
-sudo apt-get install -y php$PHP_VERSION-fpm \
-  php$PHP_VERSION-bcmath \
-  php$PHP_VERSION-cli \
-  php$PHP_VERSION-curl \
-  php$PHP_VERSION-dev \
-  php$PHP_VERSION-gd \
-  php$PHP_VERSION-igbinary \
-  php$PHP_VERSION-imagick \
-  php$PHP_VERSION-imap  \
-  php$PHP_VERSION-intl \
-  php$PHP_VERSION-ldap \
-  php$PHP_VERSION-mbstring \
-  php$PHP_VERSION-memcached \
-  php$PHP_VERSION-msgpack \
-  php$PHP_VERSION-mysql \
-  php$PHP_VERSION-pcov \
-  php$PHP_VERSION-pgsql  \
-  php$PHP_VERSION-readline \
-  php$PHP_VERSION-redis \
-  php$PHP_VERSION-soap \
-  php$PHP_VERSION-sqlite3 \
-  php$PHP_VERSION-swoole \
-  php$PHP_VERSION-xdebug \
-  php$PHP_VERSION-xml \
-  php$PHP_VERSION-zip \
+# Install PHP8.2 and required extensions
+info "Installing PHP8.2 and extensions...\n"
+sudo apt-get install -y php8.2-fpm \
+  php8.2-bcmath \
+  php8.2-cli \
+  php8.2-curl \
+  php8.2-dev \
+  php8.2-gd \
+  php8.2-igbinary \
+  php8.2-imagick \
+  php8.2-imap  \
+  php8.2-intl \
+  php8.2-ldap \
+  php8.2-mbstring \
+  php8.2-memcached \
+  php8.2-msgpack \
+  php8.2-mysql \
+  php8.2-pcov \
+  php8.2-pgsql  \
+  php8.2-readline \
+  php8.2-redis \
+  php8.2-soap \
+  php8.2-sqlite3 \
+  php8.2-swoole \
+  php8.2-xdebug \
+  php8.2-xml \
+  php8.2-zip \
   zip unzip
+
+# Switch to the newly installed PHP version
+sudo update-alternatives --set php /usr/bin/php8.2
 
 # Install Composer
 info "Installing Composer...\n"
-EXPECTED_CHECKSUM=$(wget -q -O - "$COMPOSER_HASH_URL")
-php -r "copy('$COMPOSER_SETUP_URL', 'composer-setup.php');"
+COMPOSER_DIR="/usr/local/bin"
+EXPECTED_CHECKSUM=$(wget -q -O - "https://composer.github.io/installer.sig")
+php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
 ACTUAL_CHECKSUM=$(php -r "echo hash_file('sha384', 'composer-setup.php');")
 
 # Throw error if signature missmatch
@@ -108,7 +106,7 @@ sudo rm composer-setup.php
 sudo chmod +x "$COMPOSER_DIR/composer"
 
 # Get installed versions for display
-INSTALLED_PHP_VERSION=$(php --version | awk '/^PHP/ {print $2}')
-INSTALLED_COMPOSER_VERSION=$("$COMPOSER_DIR/composer" --version | awk '{print $3}')
+PHP_VERSION=$(php --version | awk '/^PHP/ {print $2}')
+COMPOSER_VERSION=$("$COMPOSER_DIR/composer" --version | awk '{print $3}')
 
-printf "\e[1mPHP ${INSTALLED_PHP_VERSION}\e[0m and \e[1mComposer ${INSTALLED_PHP_VERSION}\e[0m have been installed successfully."
+success "\e[1mPHP ${PHP_VERSION}\e[0m and \e[1mComposer ${COMPOSER_VERSION}\e[0m have been installed successfully."
