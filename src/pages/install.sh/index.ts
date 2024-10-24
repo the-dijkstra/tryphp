@@ -1,6 +1,6 @@
 import type { APIRoute } from "astro";
 
-import content from "../../presets/php8.3.sh?raw";
+import content from "../../presets/php.sh?raw";
 
 export const GET: APIRoute = () => {
   return new Response(content, {
