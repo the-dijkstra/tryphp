@@ -3,7 +3,7 @@
 <img src="public/cover.png" alt="TryPHP's logo">
 <br><br>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![License: MIT](https://img.shields.io/badge/License-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](CONTRIBUTING.md)
 
 Effortlessly set up PHP on Linux with a simple `curl` command 🚀.
@@ -40,16 +40,22 @@ curl -fsSL https://tryphp.dev/install.sh | bash
 
 ### Installing specific version of PHP
 
+#### PHP7.4
+
 ```sh
-# supported versions (7.4, 8.1, 8.2, 8.3) 
-curl -fsSL https://tryphp.dev/[version]/install.sh | bash
+curl -fsSL https://tryphp.dev/7.4/install.sh | bash
 ```
 
-Example:
+#### PHP8.1
 
 ```sh
-# php7.4
-curl -fsSL https://tryphp.dev/7.4/install.sh | bash
+curl -fsSL https://tryphp.dev/8.1/install.sh | bash
+```
+
+#### PHP8.2
+
+```sh
+curl -fsSL https://tryphp.dev/8.2/install.sh | bash
 ```
 
 ## 📚 Documentation
@@ -73,7 +79,7 @@ TryPHP takes security seriously. If you discover any security-related issues, pl
 
 ## 📝 License
 
-TryPHP is open-sourced software licensed under the [MIT license](LICENSE.md).
+TryPHP is open-sourced software licensed under the [MIT license](LICENSE).
 
 ## 💖 Support
 
@@ -81,7 +87,7 @@ If you find TryPHP helpful, please consider:
 
 - Starring the repository
 - Sharing it with others
-- [Sponsoring the project](https://github.com/sponsors/tryphp)
+- [Sponsoring the project](https://github.com/sponsors/the-dijkstra)
 
 ## 🙏 Acknowledgments
 
