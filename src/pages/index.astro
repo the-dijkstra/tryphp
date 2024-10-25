@@ -10,9 +10,9 @@ const code = "curl -fsSL https://tryphp.dev/install.sh | bash";
 ---
 
 <Layout>
-  <main class="max-w-4xl mx-auto px-4 py-16 flex flex-col gap-12">
+  <main class="flex flex-col gap-12 mx-auto px-4 py-16 max-w-4xl">
     <nav class="flex justify-between items-center">
-      <p class="text-xl font-bold flex items-center gap-2">
+      <p class="flex items-center gap-2 font-bold text-xl">
         <svg
           class="fill-current"
           xmlns="http://www.w3.org/2000/svg"
@@ -49,7 +49,7 @@ const code = "curl -fsSL https://tryphp.dev/install.sh | bash";
     </nav>
 
     <header class="-mb-6">
-      <h1 class="text-2xl font-bold mb-2">
+      <h1 class="mb-2 font-bold text-2xl">
         Effortlessly set up <a
           href="https://www.php.net"
           class="hover:underline"
@@ -64,14 +64,14 @@ const code = "curl -fsSL https://tryphp.dev/install.sh | bash";
 
     <section class="relative">
       <Code
-        class="rounded p-4 mb-2"
+        class="mb-2 p-4 rounded"
         code={code}
         lang="bash"
         theme="catppuccin-mocha"
       />
       <CopyCodeButton code={code} />
 
-      <p class="text-sm flex items-center text-gray-700 dark:text-gray-300">
+      <p class="flex items-center text-gray-700 text-sm dark:text-gray-300">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="16"
@@ -80,7 +80,7 @@ const code = "curl -fsSL https://tryphp.dev/install.sh | bash";
           stroke-width="2"
           stroke-linecap="round"
           stroke-linejoin="round"
-          class="mr-2 stroke-current fill-none"
+          class="mr-2 fill-none stroke-current"
         >
           <polyline points="4 17 10 11 4 5"></polyline>
           <line x1="12" x2="20" y1="19" y2="19"></line>
@@ -90,7 +90,7 @@ const code = "curl -fsSL https://tryphp.dev/install.sh | bash";
     </section>
 
     <section>
-      <h2 class="text-2xl font-semibold mb-4">What is TryPHP?</h2>
+      <h2 class="mb-4 font-semibold text-2xl">What is TryPHP?</h2>
       <p class="text-lg">
         This tool simplifies the often time-consuming task of setting up a PHP
         environment on Linux. With just a single curl command, you can instantly
@@ -101,26 +101,19 @@ const code = "curl -fsSL https://tryphp.dev/install.sh | bash";
     </section>
 
     <section>
-      <h2 class="text-2xl font-semibold mb-4">Features</h2>
-      <ul class="list-disc pl-6 space-y-2">
-        <li>
-          <span class="font-bold">Automated PHP Installation:</span> Set up latest
-          version of PHP with just a single curl command.
-        </li>
-        <li>
-          <span class="font-bold">Composer Ready:</span> Installs Composer automatically
-          for seamless package management.
-        </li>
-        <li>
-          <span class="font-bold">Dependency Check:</span> Automatically verifies
-          and installs all necessary libraries and extensions.
-        </li>
+      <h2 class="mb-4 font-semibold text-2xl">Features</h2>
+      <ul class="space-y-2 pl-6 list-disc">
+        <li>🔄 Install and switch between multiple PHP versions</li>
+        <li>📦 Automatic Composer installation</li>
+        <li>🧩 Automatic PHP extensions installation</li>
+        <li>🛠️ Development environment configuration</li>
+        <li>🔒 Secure installation process</li>
       </ul>
     </section>
 
     <section>
-      <h2 class="text-2xl font-semibold mb-4">FAQ</h2>
-      <ul class="list-disc pl-6 space-y-2">
+      <h2 class="mb-4 font-semibold text-2xl">FAQ</h2>
+      <ul class="space-y-2 pl-6 list-disc">
         <li>
           <span class="font-bold"
             >Does this tool generate scripts at request time that could be
