@@ -26,7 +26,7 @@ curl -fsSL https://tryphp.dev/install.sh | bash
 
 ## 🔧 System Requirements
 
-- Linux-based operating system
+- Ubuntu-based operating system
 - curl or wget installed
 - sudo privileges
 
@@ -56,6 +56,12 @@ curl -fsSL https://tryphp.dev/8.1/install.sh | bash
 
 ```sh
 curl -fsSL https://tryphp.dev/8.2/install.sh | bash
+```
+
+#### PHP8.3
+
+```sh
+curl -fsSL https://tryphp.dev/8.3/install.sh | bash
 ```
 
 ## 📚 Documentation
