@@ -93,7 +93,7 @@ If you find TryPHP helpful, please consider:
 
 - Starring the repository
 - Sharing it with others
-- [Sponsoring the project](https://github.com/sponsors/the-dijkstra)
+- [Sponsoring the project](https://github.com/sponsors/mhdcodes)
 
 ## 🙏 Acknowledgments
 
