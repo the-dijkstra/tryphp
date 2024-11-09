@@ -9,5 +9,5 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   output: "static",
   site: "https://tryphp.dev",
-  integrations: [tailwind(), sitemap()]
+  integrations: [tailwind(), sitemap()],
 });
