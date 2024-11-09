@@ -3,8 +3,7 @@ const { code } = Astro.props;
 ---
 
 <button
-  id="copy-code"
-  class="absolute top-[0.9rem] right-2 bg-gray-700 hover:bg-gray-600 text-white font-bold py-1 px-2 rounded text-sm"
+  class="top-[0.9rem] right-2 absolute bg-gray-700 hover:bg-gray-600 px-2 copy-code py-1 rounded font-bold text-sm text-white"
   data-code={code}
 >
   Copy
@@ -17,13 +16,17 @@ const { code } = Astro.props;
     });
   }
 
-  const button = document.getElementById("copy-code")!;
-  button.addEventListener("click", () => {
-    const code = button.getAttribute("data-code");
-    copyToClipboard(code);
-    button.textContent = "Copied!";
-    setTimeout(() => {
-      button.textContent = "Copy";
-    }, 2000);
+  // Select all buttons with the copy-code class
+  const buttons = document.querySelectorAll<HTMLButtonElement>(".copy-code");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const code = button.getAttribute("data-code");
+      copyToClipboard(code);
+      button.textContent = "Copied!";
+      setTimeout(() => {
+        button.textContent = "Copy";
+      }, 2000);
+    });
   });
 </script>

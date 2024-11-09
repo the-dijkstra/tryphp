@@ -12,7 +12,7 @@ export function getStaticPaths() {
 }
 
 export const GET: APIRoute = async ({ params }) => {
-  const content = preset.replace('8.3', params.version as string);
+  const content = preset.replace("8.3", params.version as string);
   return new Response(content, {
     headers: {
       "Content-Type": "text/plain;charset=UTF-8",

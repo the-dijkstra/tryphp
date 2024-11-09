@@ -1,0 +1,67 @@
+---
+import { Code } from "astro:components";
+
+import CopyCodeButton from "./CopyCodeButton.astro";
+
+type Preset = {
+  id: string;
+  preset: string;
+  code: string;
+};
+
+type Props = {
+  presets: Array<Preset>;
+};
+
+const { presets = [] } = Astro.props;
+---
+
+<section>
+  <div class="flex flex-row gap-2 mb-2">
+    {
+      presets.map((preset) => (
+        <button
+          class="bg-[#1e1e2e] hover:bg-[#1e1e2e]/90 px-2 py-1 rounded font-bold text-white text-xs preset-selector"
+          data-id={preset.id}
+        >
+          {preset.preset}
+        </button>
+      ))
+    }
+  </div>
+
+  <div>
+    {
+      presets.map((preset) => (
+        <div class={`relative ${"preset"}`} id={preset.id}>
+          <Code
+            class="p-4 rounded"
+            code={preset.code}
+            lang="bash"
+            theme="catppuccin-mocha"
+          />
+          <CopyCodeButton code={preset.code} />
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<script>
+  // Hide all code snippets except for first one
+  const presets = document.querySelectorAll<HTMLDivElement>(".preset");
+  presets.forEach((preset) => preset.classList.add("hidden"));
+  presets[0]?.classList.remove("hidden");
+
+  const buttons =
+    document.querySelectorAll<HTMLButtonElement>(".preset-selector");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const presetId = button.getAttribute("data-id")!;
+      const preset = document.getElementById(presetId)!;
+      presets.forEach((preset) => preset.classList.add("hidden"));
+      preset.classList.toggle("hidden");
+    });
+  });
+</script>
