@@ -34,11 +34,15 @@ curl -fsSL https://tryphp.dev/install.sh | bash
 
 ### Installing latest PHP version
 
+The following command will automatically download and install the latest stable version of PHP:
+
 ```sh
 curl -fsSL https://tryphp.dev/install.sh | bash
 ```
 
-### Installing specific version of PHP
+### Installing a specific version of PHP
+
+If you need a specific PHP version, use one of the commands below. This is helpful when compatibility with specific frameworks or projects requires an older PHP version.
 
 #### PHP7.4
 
@@ -58,10 +62,14 @@ curl -fsSL https://tryphp.dev/8.1/install.sh | bash
 curl -fsSL https://tryphp.dev/8.2/install.sh | bash
 ```
 
-#### PHP8.3
+### Installing PHP with specific Framework
+
+You can install PHP with tailored presets for different frameworks or applications. For example, the Laravel preset will install PHP with all extensions required to run a Laravel application.
+
+#### Laravel
 
 ```sh
-curl -fsSL https://tryphp.dev/8.3/install.sh | bash
+curl -fsSL https://tryphp.dev/presets/laravel | bash
 ```
 
 ## 📚 Documentation
