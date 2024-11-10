@@ -3,9 +3,24 @@ const { code } = Astro.props;
 ---
 
 <button
-  class="top-[0.9rem] right-2 absolute bg-gray-700 hover:bg-gray-600 px-2 copy-code py-1 rounded font-bold text-sm text-white"
+  class="top-[0.9rem] right-2 absolute flex items-center gap-1 bg-gray-700 hover:bg-gray-600 px-2 copy-code py-1 rounded font-bold text-sm text-white"
   data-code={code}
 >
+  <span>
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      width="16"
+      height="16"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      ><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path
+        d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg
+    >
+  </span>
   Copy
 </button>
 
@@ -23,10 +38,11 @@ const { code } = Astro.props;
     button.addEventListener("click", () => {
       const code = button.getAttribute("data-code");
       copyToClipboard(code);
+      const oldContent = button.getHTML();
       button.textContent = "Copied!";
       setTimeout(() => {
-        button.textContent = "Copy";
-      }, 2000);
+        button.innerHTML = oldContent;
+      }, 3000);
     });
   });
 </script>
