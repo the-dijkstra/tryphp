@@ -6,6 +6,7 @@ import Layout from "../layouts/Layout.astro";
 import CopyCodeButton from "../components/CopyCodeButton.astro";
 import PresetsCodeBlock from "../components/PresetsCodeBlock.astro";
 import ThemeToggle from "../components/ThemeToggle.astro";
+import VersionsCodeBlock from "../components/VersionsCodeBlock.astro";
 
 const code = "curl -fsSL https://tryphp.dev/install.sh | bash";
 ---
@@ -113,41 +114,23 @@ const code = "curl -fsSL https://tryphp.dev/install.sh | bash";
     </section>
 
     <section>
-      <h2 class="mb-4 font-semibold text-2xl">Custom Install</h2>
+      <h2 class="mb-4 font-semibold text-2xl">Custom PHP Versions</h2>
       <p class="mb-4 text-lg">
-        You can install custom php versions or tailored presets for various
-        frameworks and applications. for example, the laravel preset installs
-        php with all the extensions needed to run a laravel application.
+        You can install custom PHP versions tailored to your needs. This allows
+        flexibility for various projects and environments, ensuring you’re
+        running the right version for your application.
       </p>
-      <PresetsCodeBlock
-        presets={[
-          {
-            id: "php74",
-            preset: "PHP7.4",
-            code: "curl -fsSL https://tryphp.dev/7.4/install.sh | bash",
-          },
-          {
-            id: "php81",
-            preset: "PHP8.1",
-            code: "curl -fsSL https://tryphp.dev/8.1/install.sh | bash",
-          },
-          {
-            id: "php82",
-            preset: "PHP8.2",
-            code: "curl -fsSL https://tryphp.dev/8.2/install.sh | bash",
-          },
-          {
-            id: "php83",
-            preset: "PHP8.3",
-            code: "curl -fsSL https://tryphp.dev/8.3/install.sh | bash",
-          },
-          {
-            id: "laravel",
-            preset: "Laravel",
-            code: "curl -fsSL https://tryphp.dev/presets/laravel | bash",
-          },
-        ]}
-      />
+      <VersionsCodeBlock />
+    </section>
+
+    <section>
+      <h2 class="mb-4 font-semibold text-2xl">Tailored Presets</h2>
+      <p class="mb-4 text-lg">
+        We also support tailored presets for popular frameworks and
+        applications. For example, the Laravel preset installs PHP with all the
+        necessary extensions to run a Laravel application smoothly.
+      </p>
+      <PresetsCodeBlock />
     </section>
 
     <section>
