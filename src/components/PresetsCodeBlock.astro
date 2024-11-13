@@ -3,17 +3,13 @@ import { Code } from "astro:components";
 
 import CopyCodeButton from "./CopyCodeButton.astro";
 
-type Preset = {
-  id: string;
-  preset: string;
-  code: string;
-};
-
-type Props = {
-  presets: Array<Preset>;
-};
-
-const { presets = [] } = Astro.props;
+const presets = [
+  {
+    id: "laravel",
+    preset: "Laravel",
+    code: "curl -fsSL https://tryphp.dev/presets/laravel | bash",
+  },
+];
 ---
 
 <section>
@@ -33,7 +29,7 @@ const { presets = [] } = Astro.props;
   <div>
     {
       presets.map((preset) => (
-        <div class={`relative ${"preset"}`} id={preset.id}>
+        <div class="relative preset" id={preset.id}>
           <Code
             class="p-4 rounded"
             code={preset.code}
@@ -58,8 +54,8 @@ const { presets = [] } = Astro.props;
 
   buttons.forEach((button) => {
     button.addEventListener("click", () => {
-      const presetId = button.getAttribute("data-id")!;
-      const preset = document.getElementById(presetId)!;
+      const id = button.getAttribute("data-id")!;
+      const preset = document.getElementById(id)!;
       presets.forEach((preset) => preset.classList.add("hidden"));
       preset.classList.toggle("hidden");
     });
