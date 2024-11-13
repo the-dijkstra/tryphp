@@ -1,0 +1,83 @@
+---
+import { Code } from "astro:components";
+import { createHash } from "node:crypto";
+
+import CopyCodeButton from "./CopyCodeButton.astro";
+
+type Preset = {
+  id: string;
+  preset: string;
+  code: string;
+};
+
+type Props = {
+  id: string;
+  presets: Array<Preset>;
+};
+
+const { id, presets = [] } = Astro.props;
+
+// create a unique scope based on content of the presets
+const uniqId = createHash("shake256", { outputLength: 4 })
+  .update(id)
+  .digest("hex");
+
+function scope(id?: string) {
+  if (!id) return uniqId;
+  return `${id}-${uniqId}`;
+}
+---
+
+<section>
+  <div class="flex flex-row gap-2 mb-2">
+    {
+      presets.map((preset) => (
+        <button
+          class="bg-[#1e1e2e] hover:bg-[#1e1e2e]/90 px-2 py-1 rounded font-bold text-white text-xs preset-selector"
+          data-target={scope(preset.id)}
+          data-scope={scope()}
+        >
+          {preset.preset}
+        </button>
+      ))
+    }
+  </div>
+
+  <div>
+    {
+      presets.map((preset, index) => (
+        <div
+          id={scope(preset.id)}
+          class={`relative ${scope("preset")} ${index === 0 ? "" : "hidden"}`}
+        >
+          <Code
+            class="p-4 rounded"
+            code={preset.code}
+            lang="bash"
+            theme="catppuccin-mocha"
+          />
+          <CopyCodeButton code={preset.code} />
+        </div>
+      ))
+    }
+  </div>
+</section>
+
+<script>
+  const buttons =
+    document.querySelectorAll<HTMLButtonElement>(".preset-selector");
+
+  buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+      const target = button.getAttribute("data-target")!;
+      const scope = button.getAttribute("data-scope")!;
+      const preset = document.getElementById(target)!;
+      const presets = document.querySelectorAll(`.preset-${scope}`);
+      // hide all other presets
+      presets.forEach((s) => s.classList.add("hidden"));
+
+      // show selected preset
+      preset.classList.remove("hidden");
+    });
+  });
+</script>
