@@ -73,7 +73,7 @@ clear
 ensure_sudo
 
 # Add PHP repository for the specified PHP version
-PHP_VERSION="8.3"
+PHP_VERSION="8.4"
 info "Adding PHP repository...\n"
 sudo apt-get update -y
 sudo apt-get install -y ca-certificates apt-transport-https software-properties-common
